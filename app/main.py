@@ -9,15 +9,10 @@ from .currency_crud import (
     update_currency as crud_update_currency,
     delete_currency as crud_delete_currency,
 )
-from .database import get_db, Base
+from .database import get_db
 from .utils import add_currency_rate, get_latest_update_info, convert_currency
 
 app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "Worrrrrrrrrrrrrrrrld"}
 
 
 @app.post("/currencies/", response_model=CurrencySchema)

@@ -170,4 +170,3 @@ currencies = [
     {"code": "ZMW", "name": "Zambian Kwacha"},
     {"code": "ZWL", "name": "Zimbabwean Dollar"}
 ]
-

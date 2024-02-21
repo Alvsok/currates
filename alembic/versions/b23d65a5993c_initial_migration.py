@@ -1,13 +1,13 @@
 """Initial migration
 
 Revision ID: b23d65a5993c
-Revises: 
+Revises:
 Create Date: 2024-02-20 10:59:53.920868
 
 """
 from typing import Sequence, Union
 from sqlalchemy.sql import table, column
-from sqlalchemy import String, Integer
+from sqlalchemy import String
 from alembic import op
 import sqlalchemy as sa
 from currency_init import currencies
