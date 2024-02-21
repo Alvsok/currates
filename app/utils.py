@@ -21,6 +21,9 @@ async def add_currency_rate(session: AsyncSession):
         response = await client.get(url)
         data = response.json()
 
+    if response.status_code != 200:
+        raise ValueError(response)
+
     base_currency_stmt = select(Currency).where(Currency.code == data['base'])
     base_currency_result = await session.execute(base_currency_stmt)
     base_currency = base_currency_result.scalars().first()
