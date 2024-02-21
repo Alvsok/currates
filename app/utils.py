@@ -89,13 +89,13 @@ async def convert_currency(session: AsyncSession, source_code: str, target_code:
         return "One of the currency codes is invalid."
 
     source_rate_stmt = select(CurrencyRate.rate).where(
-        (CurrencyRate.currency_id == source_currency.id) &
-        (CurrencyRate.exchange_rate_id == latest_exchange_rate.id)
+        (CurrencyRate.currency_id == source_currency.id)
+        & (CurrencyRate.exchange_rate_id == latest_exchange_rate.id)
     )
 
     target_rate_stmt = select(CurrencyRate.rate).where(
-        (CurrencyRate.currency_id == target_currency.id) &
-        (CurrencyRate.exchange_rate_id == latest_exchange_rate.id)
+        (CurrencyRate.currency_id == target_currency.id)
+        & (CurrencyRate.exchange_rate_id == latest_exchange_rate.id)
     )
 
     source_rate = (await session.execute(source_rate_stmt)).scalars().first()
